@@ -21,6 +21,12 @@ skills/
 Each skill is a directory named after the skill (lowercase, hyphenated).
 Everything the agent needs lives inside that one directory.
 
+## Available skills
+
+- [`challenge-me`](challenge-me/SKILL.md) — interrogates you like a skeptical
+  senior engineer before giving answers, to build independent engineering
+  judgment instead of AI reliance.
+
 ## Creating a new skill
 
 1. Copy `skills/TEMPLATE/` to `skills/<your-skill-name>/`.
