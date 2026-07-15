@@ -23,9 +23,28 @@ Everything the agent needs lives inside that one directory.
 
 ## Available skills
 
+**Knowledge:**
+
 - [`challenge-me`](challenge-me/SKILL.md) — interrogates you like a skeptical
   senior engineer before giving answers, to build independent engineering
   judgment instead of AI reliance.
+- [`learning-log`](learning-log/SKILL.md) — keeps a durable journal of TILs
+  and reasoning gaps, and quizzes you on past entries so they stick.
+- [`code-tour`](code-tour/SKILL.md) — guided tour of unfamiliar code (map,
+  one flow end-to-end, invariants), ending with you tracing a path yourself.
+- [`concept-deep-dive`](concept-deep-dive/SKILL.md) — teaches a concept from
+  first principles when real work touches it, with an exercise tied to your
+  actual code.
+
+**Productivity:**
+
+- [`plan-first`](plan-first/SKILL.md) — you draft the ticket breakdown
+  (steps, unknowns, risks, estimate); the agent critiques it like a tech
+  lead before any code is written.
+- [`ship-check`](ship-check/SKILL.md) — pre-PR ritual: you self-review your
+  diff and predict reviewer feedback before the agent reveals what it found.
+- [`standup-notes`](standup-notes/SKILL.md) — turns git history and session
+  context into crisp Yesterday / Today / Blockers standup notes.
 
 ## Creating a new skill
 
