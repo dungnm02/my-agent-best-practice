@@ -46,6 +46,12 @@ Everything the agent needs lives inside that one directory.
 - [`standup-notes`](standup-notes/SKILL.md) — turns git history and session
   context into crisp Yesterday / Today / Blockers standup notes.
 
+**Authoring:**
+
+- [`design-doc`](design-doc/SKILL.md) — generates skimmable Design Documents
+  (RFC / tech spec) for React modules: decisions-first template, word budgets,
+  and coverage-based diagram rules.
+
 ## Creating a new skill
 
 1. Copy `skills/TEMPLATE/` to `skills/<your-skill-name>/`.
