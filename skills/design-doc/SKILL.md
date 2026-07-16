@@ -4,8 +4,9 @@ description: >-
   Generates skimmable Design Documents (RFCs / Tech Specs) for React modules — architecture,
   boundaries, contracts, and diagrams. Use this whenever the user asks for a design doc, RFC,
   tech spec, or refactor plan for a React feature or module, even if they don't use the word
-  "RFC". Do NOT use for reviewing or critiquing an existing design, writing implementation
-  code, reviewing existing code line-by-line, or breaking work into tickets.
+  "RFC". Do NOT use for reviewing or critiquing an existing design (use design-review),
+  writing implementation code, reviewing existing code line-by-line, or breaking work into
+  tickets.
 license: none
 ---
 

@@ -51,6 +51,9 @@ Everything the agent needs lives inside that one directory.
 - [`design-doc`](design-doc/SKILL.md) — generates skimmable Design Documents
   (RFC / tech spec) for React modules: decisions-first template, word budgets,
   and coverage-based diagram rules.
+- [`design-review`](design-review/SKILL.md) — critiques an existing React
+  design/RFC, ranking findings by cost of reversal (Blocker / Should-fix /
+  Later) with a banned-findings list that filters out generic noise.
 
 ## Creating a new skill
 
