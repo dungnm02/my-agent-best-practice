@@ -2,11 +2,12 @@
 name: design-doc
 description: >-
   Generates skimmable Design Documents (RFCs / Tech Specs) for React modules — architecture,
-  boundaries, contracts, and diagrams. Use this whenever the user asks for a design doc, RFC,
-  tech spec, or refactor plan for a React feature or module, even if they don't use the word
-  "RFC". Do NOT use for reviewing or critiquing an existing design (use design-review),
-  writing implementation code, reviewing existing code line-by-line, or breaking work into
-  tickets.
+  boundaries, contracts, and diagrams — and amends existing ones when review findings or
+  conformance results call for changes. Use this whenever the user asks for a design doc, RFC,
+  tech spec, or refactor plan for a React feature or module, or asks to apply review findings
+  to an existing design doc, even if they don't use the word "RFC". Do NOT use for reviewing
+  or critiquing an existing design (use design-review), writing implementation code, reviewing
+  existing code line-by-line, or breaking work into tickets.
 license: none
 ---
 
@@ -35,6 +36,23 @@ who will skim first, then read only the sections that concern them. Write for th
    owner of the primary state is unspecified, output only Section 1 and ask 2–3 precise
    architectural questions. Otherwise, make a reasonable assumption, mark it in the Key Decisions
    table, and keep going. A doc with a stated assumption beats a doc that never got written.
+6. **Save the doc.** Write the finished doc to `docs/design/<module>.md` (confirm the location
+   the first time in a project, then stick with it). The downstream skills — design-review,
+   implementation-plan, design-conformance — read it from there. A design that lives only in
+   chat dies with the session.
+
+## Amend Mode
+
+When handed an existing doc plus findings — a design-review "Approve with changes", a
+design-conformance "Design updates needed" list, or the user's own revisions — amend, don't
+regenerate:
+
+- Apply targeted edits only; decisions the findings don't touch stay byte-identical.
+- Update the Key Decisions table: a choice the findings overturned moves to the "Rejected"
+  column with a five-word reason, and the new choice takes its place.
+- Update the Status line, and add one line beneath it noting what changed and why.
+- Never rewrite the doc wholesale — regeneration loses history and silently re-opens settled
+  decisions.
 
 ## Readability Rules (these are the point of this skill)
 
@@ -135,7 +153,10 @@ Do not print a date unless you have looked it up. If you have no reliable date, 
 
 # [Module Name] Design Document
 
-**Status:** Draft · **Type:** [New Module Design / Legacy Refactor Spec]
+**Status:** [Draft / Approved / Superseded] · **Type:** [New Module Design / Legacy Refactor Spec]
+
+*(Transitions: new docs start Draft; design-review's approval sets Approved; amending an Approved
+doc returns it to Draft until re-reviewed; a replacement doc marks this one Superseded.)*
 
 ### 0. TL;DR
 

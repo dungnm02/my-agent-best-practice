@@ -30,9 +30,16 @@ critiqued, that's plan-first, not this.
 ## Inputs — you need a design
 
 You need an approved design, or at minimum its load-bearing decisions (state ownership,
-boundaries, contracts). If there's no design to plan from, don't invent one — say so and point the
-user at `design-doc` to write it first (or `plan-first` if they'd rather draft the breakdown
-themselves). A plan with no design is just guessing in order.
+boundaries, contracts). If it wasn't handed to you, look for it at the convention path
+(`docs/design/<module>.md`) before asking. If there's no design to plan from, don't invent one —
+say so and point the user at `design-doc` to write it first (or `plan-first` if they'd rather
+draft the breakdown themselves). A plan with no design is just guessing in order.
+
+**Check the review state before planning.** Ask whether the design has been through design-review
+(or read its Status line). If a review left unresolved 🔴 Blockers, stop — sequencing a design
+with known one-way-door defects is carefully planning the wrong build. Send the user back to
+resolve the Blockers (design-doc's amend mode) first; an unreviewed design is worth flagging in
+one line, then proceed if the user says go.
 
 ## How to sequence — the principles behind the draft
 
@@ -53,7 +60,9 @@ themselves). A plan with no design is just guessing in order.
 
 Each increment states four things and nothing more: what it **delivers** (the capability), which
 design elements it **realizes**, how you **verify** it (a test or an observable behavior), and what
-it deliberately **defers**.
+it deliberately **defers**. The Verify line is that increment's exit check — if the ship-check
+skill is available, run it on the increment's PR with the Verify line as the first thing to
+confirm.
 
 ## The refine loop
 
@@ -86,6 +95,9 @@ guess. A plan built on a quietly-patched design is a plan that lies.
   a design gap to surface (above), not a change to make silently in the plan.
 - **Fewer, meaningful increments.** Three slices that each prove something beat nine that each move
   a file. If an increment has nothing to verify, it isn't one.
+- **Save the plan.** Once refined, write it to `docs/design/<module>.plan.md`, next to the design.
+  design-conformance reconciles its coverage map against your Defers lines — a plan that lives
+  only in chat can't tell it what was deferred on purpose.
 
 ---
 

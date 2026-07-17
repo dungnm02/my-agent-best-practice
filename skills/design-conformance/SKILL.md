@@ -25,8 +25,12 @@ A conformance review is meaningless with only one side. You need:
 1. **The design** — a design doc, RFC, or at minimum a stated set of decisions (state ownership,
    component boundaries, contracts, forbidden patterns).
 2. **The implementation** — a diff, a set of files, or the module as built.
+3. **The build plan** *(optional but valuable)* — if an implementation-plan exists, take it: its
+   increments' **Defers** lines tell you which absences are deliberate and on schedule.
 
-If either is missing or too thin to compare, stop and return the **"Can't assess"** verdict,
+If they weren't handed to you, look for the design at `docs/design/<module>.md` and the plan at
+`docs/design/<module>.plan.md` before asking. If design or implementation is missing or too thin
+to compare, stop and return the **"Can't assess"** verdict,
 naming exactly what you'd need. Do not review the code as general code (that's a different skill),
 and do not review the design in the abstract (that's design-review). No design, no conformance
 review.
@@ -55,8 +59,8 @@ one:
   The most common case.
 - **→ Design should update.** The implementation revealed the design was naive, wrong, or
   incomplete — the code is the better answer, and the *design doc* is the thing that should be
-  amended. Say so plainly and point the author back to design-doc to update it. Closing this loop
-  is what keeps the design trustworthy instead of fiction.
+  amended. Say so plainly and point the author at design-doc's amend mode to apply it. Closing
+  this loop is what keeps the design trustworthy instead of fiction.
 - **→ Acceptable deviation.** The difference is immaterial or a justified local call. Note it once
   so it's a conscious decision on record, not silent drift — then move on. Do not tier it.
 
@@ -131,8 +135,10 @@ makes the Blockers land. Skip rather than pad.]
 - [Design §X said Y; the implementation does Z, which is the better call because … — update the doc.]
 
 ### Not yet implemented
-*Design elements with no code yet. Coverage map, not defects.*
-- [Design element] — not present.
+*Design elements with no code yet. Coverage map, not defects. If a build plan exists, reconcile
+against its Defers lines first and list only UNPLANNED absences — an element the current
+increment deliberately stubbed is on schedule, not missing.*
+- [Design element] — not present. [Planned in increment N / not in any increment.]
 
 ### Missing context
 [What you'd need to finish the assessment — an unspecified decision, a file you couldn't see.
@@ -144,3 +150,8 @@ Verdict and counts sit at the top so the author knows the shape before reading. 
 needed" section is deliberately separate from the tiers: those aren't the code's bugs to fix, they
 are the signal that the design and reality have drifted — and left unspoken, the design quietly
 becomes fiction.
+
+After the review: if the learning-log skill is available and divergences trace to the
+implementer's drift rather than a stale design, offer to log the pattern — recurring divergence
+habits (contracts loosened mid-build, state quietly relocated) are exactly what the log exists
+to catch.
