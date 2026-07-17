@@ -46,7 +46,7 @@ Everything the agent needs lives inside that one directory.
 - [`standup-notes`](standup-notes/SKILL.md) — turns git history and session
   context into crisp Yesterday / Today / Blockers standup notes.
 
-**Design loop (author → review → verify):**
+**Design loop (author → review → plan → verify):**
 
 - [`design-doc`](design-doc/SKILL.md) — generates skimmable Design Documents
   (RFC / tech spec) for React modules: decisions-first template, word budgets,
@@ -54,6 +54,9 @@ Everything the agent needs lives inside that one directory.
 - [`design-review`](design-review/SKILL.md) — critiques an existing React
   design/RFC, ranking findings by cost of reversal (Blocker / Should-fix /
   Later) with a banned-findings list that filters out generic noise.
+- [`implementation-plan`](implementation-plan/SKILL.md) — turns an approved
+  design into a sequenced build plan of vertical-slice increments (riskiest
+  first), drafted from the design then refined with you.
 - [`design-conformance`](design-conformance/SKILL.md) — reviews an
   implementation against the design it was built from, ranking divergences by
   cost of reversal and saying, for each, whether the code or the design is the
