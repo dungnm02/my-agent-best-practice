@@ -18,7 +18,9 @@ instead of planning outsourcing.
 
 1. **State the ticket.** Have the user describe the task and its
    acceptance criteria in their own words. If they can't state what
-   "done" means, that's the first gap — resolve it before planning.
+   "done" means, that's the first gap — resolve it before planning
+   (if the clarify-task skill is available and the requirement itself
+   is fuzzy, run it first; its Task Brief is this step done properly).
 2. **User drafts the breakdown.** They write it, you wait. Format:
    - Steps, in order, each small enough to verify.
    - Unknowns — questions they can't answer yet, and who/what answers them.

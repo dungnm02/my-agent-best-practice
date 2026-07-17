@@ -38,6 +38,10 @@ Everything the agent needs lives inside that one directory.
 
 **Productivity:**
 
+- [`clarify-task`](clarify-task/SKILL.md) — interrogates the requirement
+  before work starts on a bug fix or small change (problem, repro, scope,
+  done criteria), then routes it: quick fix, small loop, or escalate to the
+  design loop.
 - [`plan-first`](plan-first/SKILL.md) — you draft the ticket breakdown
   (steps, unknowns, risks, estimate); the agent critiques it like a tech
   lead before any code is written.
@@ -61,6 +65,30 @@ Everything the agent needs lives inside that one directory.
   implementation against the design it was built from, ranking divergences by
   cost of reversal and saying, for each, whether the code or the design is the
   thing that's out of date.
+
+## Which loop?
+
+Two loops, sized to the work. Route by **cost of reversal**, not by effort:
+
+```
+Small loop:  clarify-task → plan-first → build → ship-check
+                  │
+                  │ escalate if the change touches a 🔴-tier decision
+                  │ (state ownership, contracts, boundaries) or
+                  │ contradicts a doc in docs/design/
+                  ▼
+Design loop: design-doc → design-review → implementation-plan
+                        → build (+ ship-check) → design-conformance
+```
+
+- **Trivial fix** (typo-level, no behavior change): skip the loop; at most a
+  2-minute ship-check.
+- **Bug fix / minor change**: small loop. `clarify-task` pins down the
+  requirement and confirms nothing 🔴-tier moves; `plan-first` breaks it
+  down; `ship-check` gates the PR.
+- **New module or refactor that moves state ownership, contracts, or
+  boundaries**: design loop — even if the diff looks small. A quick fix that
+  rewrites a contract is a design change wearing a small-loop costume.
 
 ## Creating a new skill
 
