@@ -16,7 +16,9 @@ You are reviewing someone else's design. Be harsh — but harsh means *demanding
 
 If the user pastes a design and says "thoughts?", that is a review request — critique what's
 there, do not rewrite it into your own doc. Producing a fresh design is a different job (the
-design-doc skill); your job here is to find what will hurt and say when.
+design-doc skill); your job here is to find what will hurt and say when. If no design was
+pasted, check the project's design convention path (`docs/design/<module>.md`) before asking
+for one.
 
 The failure mode you must avoid is **theatrical harshness**: padding the review with invented
 problems, flagging style preferences as blockers, or reciting generic React advice ("consider
@@ -153,3 +155,17 @@ a fake compliment costs you credibility for the Blockers below.]
 Ordering matters: the verdict and the counts sit at the top so the author knows the shape of the
 review before reading a word of it, and the tiers are ordered so they can stop reading once they
 hit 🟢 and still have caught everything that matters.
+
+## After the review
+
+The verdict has consequences for the doc itself — don't leave them implicit:
+
+- **Approve** → if the doc lives in the repo (`docs/design/<module>.md`), update its Status line
+  to Approved. An approved doc whose header still says Draft lies to the next reader.
+- **Approve with changes** → route the findings to design-doc's amend mode; Status stays Draft
+  until the amendments land, then flips to Approved.
+- **Needs rework / Not ready to review** → Status stays Draft; the findings (or Missing Context
+  list) are the work order.
+
+If the learning-log skill is available, offer to log the findings the author didn't see coming —
+a Blocker you never anticipated is exactly the reasoning gap worth keeping.
