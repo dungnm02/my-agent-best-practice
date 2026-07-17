@@ -21,6 +21,9 @@ skills/
 Each skill is a directory named after the skill (lowercase, hyphenated).
 Everything the agent needs lives inside that one directory.
 
+**New here?** [USAGE.md](USAGE.md) covers loading the skills into your agent
+and the phrases that trigger each loop, stage by stage.
+
 ## Available skills
 
 **Knowledge:**
